@@ -1,0 +1,85 @@
+//下面是正常的区块链网络搭建后的app.go运行结果
+
+*** Start chaincode event listening
+
+--> Submit transaction: CreateAsset, asset1724674565181 owned by Sam with appraised value 100
+
+*** CreateAsset committed successfully
+
+--> Submit transaction: UpdateAsset, asset1724674565181 update appraised value to 200
+
+<-- Chaincode event received: CreateAsset - {
+  "AppraisedValue": 100,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Sam",
+  "Size": 10
+}
+
+<-- Chaincode event received: UpdateAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Sam",
+  "Size": 10
+}
+
+*** UpdateAsset committed successfully
+
+--> Submit transaction: TransferAsset, asset1724674565181 to Mary
+
+<-- Chaincode event received: TransferAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Mary",
+  "Size": 10
+}
+
+*** TransferAsset committed successfully
+
+--> Submit transaction: DeleteAsset, asset1724674565181
+
+<-- Chaincode event received: DeleteAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Mary",
+  "Size": 10
+}
+
+*** DeleteAsset committed successfully
+
+*** Start chaincode event replay
+
+<-- Chaincode event replayed: CreateAsset - {
+  "AppraisedValue": 100,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Sam",
+  "Size": 10
+}
+
+<-- Chaincode event replayed: UpdateAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Sam",
+  "Size": 10
+}
+
+<-- Chaincode event replayed: TransferAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Mary",
+  "Size": 10
+}
+
+<-- Chaincode event replayed: DeleteAsset - {
+  "AppraisedValue": 200,
+  "Color": "blue",
+  "ID": "asset1724674565181",
+  "Owner": "Mary",
+  "Size": 10
+}
