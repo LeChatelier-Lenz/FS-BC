@@ -6,6 +6,7 @@
           <div class="block">
             <el-avatar :size="50" :src="circleUrl" />
           </div>
+          <p>邮箱：{{this.userInfo.useremail}}</p>
           <p>用户名：{{this.userInfo.username}}</p>
           <p>用户ID：{{this.userInfo.user_id}}</p>
       </div>
@@ -43,42 +44,43 @@ export default {
   data() {
     return {
       userInfo:{
+        useremail:"826733088@qq.com",
         username: "Alice",
         user_id: "001"
       },
-      balance: 0,
+      balance: 0.00,
       circleUrl: "https://avatars.githubusercontent.com/u/47231169?v=4",
       contractList: [
         {
-          "business_id": "string",
-          "amount": 0,
-          "issuer": "string",
-          "created_at": "string",
-          "updated_at": "string",
-          "state": "string"
+          "business_id": "Loan1725414531",
+          "amount": 20000.0,
+          "issuer": "Alice",
+          "created_at": "2024-09-01 14:23:19",
+          "updated_at": "2024-09-01 15:11:22",
+          "state": "Approved"
         },
         {
-          "business_id":"x001",
+          "business_id":"Insurance1725103122",
           "amount": 1000,
           "issuer": "Alice",
-          "created_at": "2021-09-01",
-          "updated_at": "2021-09-01",
-          "state": "active"
+          "created_at": "2024-09-01 00:52:02",
+          "updated_at": "2024-09-01 02:15:33",
+          "state": "Rejected"
         },
         {
-          "business_id":"x002",
-          "amount": 2000,
-          "issuer": "Bob",
-          "created_at": "2021-09-02",
-          "updated_at": "2021-09-02",
-          "state": "active"
+          "business_id":"Loan1724118531",
+          "amount": 50000,
+          "issuer": "Alice",
+          "created_at":"2024-08-20 09:48:51",
+          "updated_at":"2024-08-29 18:28:29",
+          "state":"Claimed"
         }
       ]
     };
   },
   mounted() {
     console.log("UserInfo mounted");
-    this.GetAllContractInfo();
+    // this.GetAllContractInfo();
   },
   methods: {
     GetAllContractInfo() {
@@ -121,6 +123,15 @@ export default {
   border-radius: 10px;
   margin-top: 2rem;
 }
+
+.contract-history p {
+  margin: 0;
+  font-size: 14px;
+  color: #8B8E98;
+  text-overflow: ellipsis;
+  font-family:"Arial Unicode MS";
+}
+
 .info-detail {
   padding: 10px;
   display: flex;
@@ -131,7 +142,7 @@ export default {
 }
 
 .basic {
-  width: 150px;
+  width: 200px;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
@@ -160,5 +171,7 @@ export default {
   font-size: 17px;
   text-overflow: ellipsis;
 }
+
+
 
 </style>
